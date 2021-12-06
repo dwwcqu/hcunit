@@ -21,10 +21,33 @@
         linear2(l2_w,l2_b,l2_in,l2_out)
 {
 }
+dww::HELeNet_Model::HELeNet_Model(const torch::Tensor &conv1_w, const torch::Tensor &conv1_b, int64_t conv1_in,
+                                  int64_t conv1_out, int64_t conv1_k, int64_t conv1_p, int64_t conv1_s, int64_t pool1_k,
+                                  int64_t pool1_p, int64_t pool1_s, const torch::Tensor &conv2_w,
+                                  const torch::Tensor &conv2_b, int64_t conv2_in, int64_t conv2_out, int64_t conv2_k,
+                                  int64_t conv2_p, int64_t conv2_s, int64_t pool2_k, int64_t pool2_p, int64_t pool2_s,
+                                  const torch::Tensor &conv3_w, const torch::Tensor &conv3_b, int64_t conv3_in,
+                                  int64_t conv3_out, int64_t conv3_k, int64_t conv3_p, int64_t conv3_s,
+                                  const torch::Tensor &l1_w, const torch::Tensor &l1_b, int64_t l1_in, int64_t l1_out,
+                                  const torch::Tensor &l2_w, const torch::Tensor &l2_b, int64_t l2_in, int64_t l2_out)
+        :
+        conv1(conv1_w,conv1_b,conv1_in,conv1_out,conv1_k,conv1_p,conv1_s),
+        pool1(pool1_k,pool1_p,pool1_s),
+        conv2(conv2_w,conv2_b,conv2_in,conv2_out,conv2_k,conv2_p,conv2_s),
+        pool2(pool2_k,pool2_p,pool2_s),
+        conv3(conv3_w,conv3_b,conv3_in,conv3_out,conv3_k,conv3_p,conv3_s),
+        linear1(l1_w,l1_b,l1_in,l1_out),
+        linear2(l2_w,l2_b,l2_in,l2_out)
+{
 
+}
 void dww::HELeNet_Model::forward(const torch::Tensor &input, dww::HEWrapper &tools, dww::Cipher_Tensor &output) {
     assert(input.sizes().size() == 4 && "The input image is not a 2D image, its shape must be N * C * H * W!");
+    std::chrono::high_resolution_clock::time_point start,end;
+    start = std::chrono::high_resolution_clock::now();
     Cipher_Tensor input_cipher(input,tools);
+    end = std::chrono::high_resolution_clock::now();
+    enc_time += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
     // 获取当前同态运算的批处理的 image 图片数量，以用于后面的 Cipher_Tensor 中的 batch 的设置
     int64_t batch = input_cipher.batch;
     Cipher_Tensor conv1_output(conv1.out_numel(input_cipher.shape),conv1.out_shape(input_cipher.shape),batch);
@@ -33,7 +56,7 @@ void dww::HELeNet_Model::forward(const torch::Tensor &input, dww::HEWrapper &too
     Cipher_Tensor pool2_output(pool2.out_numel(conv2_output.shape),pool2.out_shape(conv2_output.shape),batch);
     Cipher_Tensor conv3_output(conv3.out_numel(pool2_output.shape),conv3.out_shape(pool2_output.shape),batch);
     Cipher_Tensor linear1_output(linear1.out_,{linear1.out_},batch);
-    std::chrono::high_resolution_clock::time_point start,end;
+
 
 
     start = std::chrono::high_resolution_clock::now();
@@ -89,29 +112,13 @@ void dww::HELeNet_Model::forward(const torch::Tensor &input, dww::HEWrapper &too
     linear_time += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
 }
 
-dww::HELeNet_Model::HELeNet_Model(const torch::Tensor &conv1_w, const torch::Tensor &conv1_b, int64_t conv1_in,
-                                  int64_t conv1_out, int64_t conv1_k, int64_t conv1_p, int64_t conv1_s, int64_t pool1_k,
-                                  int64_t pool1_p, int64_t pool1_s, const torch::Tensor &conv2_w,
-                                  const torch::Tensor &conv2_b, int64_t conv2_in, int64_t conv2_out, int64_t conv2_k,
-                                  int64_t conv2_p, int64_t conv2_s, int64_t pool2_k, int64_t pool2_p, int64_t pool2_s,
-                                  const torch::Tensor &conv3_w, const torch::Tensor &conv3_b, int64_t conv3_in,
-                                  int64_t conv3_out, int64_t conv3_k, int64_t conv3_p, int64_t conv3_s,
-                                  const torch::Tensor &l1_w, const torch::Tensor &l1_b, int64_t l1_in, int64_t l1_out,
-                                  const torch::Tensor &l2_w, const torch::Tensor &l2_b, int64_t l2_in, int64_t l2_out)
-        :
-        conv1(conv1_w,conv1_b,conv1_in,conv1_out,conv1_k,conv1_p,conv1_s),
-        pool1(pool1_k,pool1_p,pool1_s),
-        conv2(conv2_w,conv2_b,conv2_in,conv2_out,conv2_k,conv2_p,conv2_s),
-        pool2(pool2_k,pool2_p,pool2_s),
-        conv3(conv3_w,conv3_b,conv3_in,conv3_out,conv3_k,conv3_p,conv3_s),
-        linear1(l1_w,l1_b,l1_in,l1_out),
-        linear2(l2_w,l2_b,l2_in,l2_out)
-{
 
-}
 
 std::ostream &dww::operator<<(std::ostream &out,const HELeNet_Model& self){
-    out << "conv1: " << self.conv1 << self.pool1 << self.conv2 << self.pool2 << self.conv3 << self.linear1 << self.linear2;
+    out << "conv1: " << self.conv1 << "pool1: " << self.pool1
+    << "conv2: " << self.conv2 << "pool2: " << self.pool2
+    << "conv3: " << self.conv3 << "linear1: " << self.linear1
+    << "linear2: " << self.linear2;
     return out;
 }
 
@@ -172,8 +179,8 @@ void dww::LeNet_he_inference_test(const std::string& filename){
     int64_t sz = dataloader.get_batch_num();
     int64_t samples_num = dataloader.samples_num;
     int64_t correct = 0;
-    std::ofstream test_log("../experiment/lenet",std::ios_base::trunc);
-    assert(test_log.is_open() && "File conv_unit can not open!");
+    std::ofstream test_log("../experiment/lenet",std::ios_base::app);
+    assert(test_log.is_open() && "File lenet can not open!");
     test_log << "Dataset: " << filename << '\n';
     test_log << "Model Information: \n";
     test_log << model;
@@ -186,11 +193,8 @@ void dww::LeNet_he_inference_test(const std::string& filename){
         torch::Tensor label = dataloader.labels[i];
         // 该 batch 中有的 image 图片个数
         int64_t bt_sz = image.size(0);
-        start = high_resolution_clock::now();
         // 保存最终预测结果的密文值
         Cipher_Tensor output(model.linear2.out_,{model.linear2.out_},bt_sz);
-        end = high_resolution_clock::now();
-        model.enc_time += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
         start = high_resolution_clock::now();
         // 同态运算一个卷积单元
         model.forward(image,tools,output);
@@ -228,4 +232,5 @@ void dww::LeNet_he_inference_test(const std::string& filename){
     test_log << "Average Time Consume Per Image                     : " << time_consume / samples_num << "(s)\n\n";
     test_log.flush();
     test_log.close();
+    std::cout << "----> Homomorphic Convolution " <<  filename <<  " Datasets End <-----\n";
 }

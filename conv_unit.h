@@ -24,6 +24,7 @@ namespace dww {
         double time_enc = 0.0,time_dec = 0.0;
     };
 
-    void conv_unit_he_inference_test(const std::string& filename);
+    void conv_unit_he_inference_test(const std::string& filename,int64_t poly_d,int64_t scale);
+    std::ostream& operator<<(std::ostream& out,const HETest_1_1_CHAN_Model& self);
 }
 #endif //EXPERIMENT_CONV_UNIT_H

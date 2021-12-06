@@ -23,32 +23,31 @@ dww::HETest_1_1_CHAN_Model::HETest_1_1_CHAN_Model(
 
 void dww::HETest_1_1_CHAN_Model::forward(const torch::Tensor &input, dww::HEWrapper &tools, dww::Cipher_Tensor &output) {
     assert(input.sizes().size() == 4 && "The input image is not a 2D image, its shape must be N * C * H * W!");
+    std::chrono::high_resolution_clock::time_point start,end;
+    start = std::chrono::high_resolution_clock::now();
     Cipher_Tensor conv2d_input(input,tools);
+    end = std::chrono::high_resolution_clock::now();
+    time_enc += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
     // 获取当前同态运算的批处理的 image 图片数量，以用于后面的 Cipher_Tensor 中的 batch 的设置
     int64_t batch = conv2d_input.batch;
     Cipher_Tensor conv2d_output(conv2d.out_numel(conv2d_input.shape),conv2d.out_shape(conv2d_input.shape),batch);
     Cipher_Tensor pool2d_output(pool2d.out_numel(conv2d_output.shape),pool2d.out_shape(conv2d_output.shape),batch);
     Cipher_Tensor linear1_output(linear1.out_,{linear1.out_},batch);
-    std::chrono::high_resolution_clock::time_point start,end;
-
 
     start = std::chrono::high_resolution_clock::now();
     conv2d.forward(conv2d_input,tools,conv2d_output);
     end = std::chrono::high_resolution_clock::now();
     time_conv += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
 
-
     start = std::chrono::high_resolution_clock::now();
     pool2d.forward(conv2d_output,tools,pool2d_output);
     end = std::chrono::high_resolution_clock::now();
     time_pool += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
 
-
     start = std::chrono::high_resolution_clock::now();
     square.forward(pool2d_output,tools);
     end = std::chrono::high_resolution_clock::now();
     time_relu += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
-
 
     start = std::chrono::high_resolution_clock::now();
     pool2d_output.shape = {pool2d_output.numel()};
@@ -63,7 +62,7 @@ void dww::HETest_1_1_CHAN_Model::forward(const torch::Tensor &input, dww::HEWrap
     time_l2 += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
 }
 
-void dww::conv_unit_he_inference_test(const std::string& filename){
+void dww::conv_unit_he_inference_test(const std::string& filename,int64_t poly_d,int64_t scale){
     std::string path = "../model/conv_unit/" + filename + "/";
     torch::Tensor conv_weight,conv_bias;
     torch::Tensor linear1_weight,linear1_bias;
@@ -103,7 +102,7 @@ void dww::conv_unit_he_inference_test(const std::string& filename){
                                 linear2_w,linear2_b,
                                 l2_in,l2_out
     );
-    HEWrapper tools(8192,25);
+    HEWrapper tools(poly_d,scale);
     dww::MedDataSet dataset(filename);
     dww::MedDataSetLoader dataloader(dataset,DATA_CAT::TEST,tools.get_slots_num());
     int64_t sz = dataloader.get_batch_num();
@@ -113,11 +112,7 @@ void dww::conv_unit_he_inference_test(const std::string& filename){
     assert(test_log.is_open() && "File conv_unit can not open!");
     test_log << "Dataset: " << filename << '\n';
     test_log << "Model Information: \n";
-    test_log << "Conv2d: \t" << "in_channel = " << conv_in << "; out_channel = " << conv_out << "; conv2d kernel = " << conv_k
-             << "; conv2d stride = " <<  conv_s << "; conv2d padding = " << conv_p << '\n';
-    test_log << "Average2d: \t" << "pool kernel = " << pool_k << "; pool stride = " << pool_s << "; pool padding = " << pool_p << '\n';
-    test_log << "linear1: \t" << "input = " << l1_in << "; output = " << l1_out << '\n';
-    test_log << "linear2: \t" << "input = " << l2_in << "; output = " << l2_out << '\n';
+    test_log << model;
     std::cout << "----> Homomorphic Convolution " <<  filename <<  " Datasets Starts <-----\n";
     using std::chrono::high_resolution_clock;
     high_resolution_clock::time_point start,end;
@@ -127,10 +122,8 @@ void dww::conv_unit_he_inference_test(const std::string& filename){
         torch::Tensor label = dataloader.labels[i];
         // 该 batch 中有的 image 图片个数
         int64_t bt_sz = image.size(0);
-        start = high_resolution_clock::now();
         // 保存最终预测结果的密文值
         Cipher_Tensor output(model.linear2.out_,{model.linear2.out_},bt_sz);
-        end = high_resolution_clock::now();
         model.time_enc += std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
         start = high_resolution_clock::now();
         // 同态运算一个卷积单元
@@ -175,4 +168,13 @@ void dww::conv_unit_he_inference_test(const std::string& filename){
     test_log << "Average Time Consume Per Image             : " << time_consume / samples_num << "(s)\n\n";
     test_log.flush();
     test_log.close();
+    std::cout << "----> Homomorphic Convolution " <<  filename <<  " Datasets End <-----\n";
+}
+
+std::ostream& dww::operator<<(std::ostream& out,const HETest_1_1_CHAN_Model& self){
+    out << "conv: " << self.conv2d
+    << "pool: " << self.pool2d
+    << "linear1: " << self.linear1
+    << "linear2: " << self.linear2;
+    return out;
 }

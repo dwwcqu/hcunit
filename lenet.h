@@ -38,7 +38,6 @@ namespace dww {
         HESquare square;
         double conv_time = 0.0,pool_time = 0.0,linear_time = 0.0,square_time = 0.0;
         double enc_time = 0.0,dec_time = 0.0;
-
     };
     void LeNet_he_inference_test(const std::string& filename);
     std::ostream& operator<<(std::ostream& out,const HELeNet_Model& self);
