@@ -284,6 +284,69 @@ namespace dww{
      * 训练 LeNet 网络
      */
     [[maybe_unused]] void train_LeNet_model(const std::string& filename,int64_t epoch,int64_t batch,double lr = 0.01);
+
+
+
+    struct CryptoNetsImpl : BaseModelImpl{
+        CryptoNetsImpl(int64_t label_num):
+        conv1(torch::nn::Conv2dOptions(1,5,{5,5}).stride(2).padding(1)),
+        conv2(torch::nn::Conv2dOptions(5,50,{5,5}).stride(2)),
+        pool1(torch::nn::AvgPool2dOptions({3,3}).padding(1).stride(1)),
+        pool2(torch::nn::AvgPool2dOptions({3,3}).padding(1).stride(1)),
+        linear1(torch::nn::LinearOptions(50*5*5,100)),
+        linear2(torch::nn::LinearOptions(100,label_num))
+        {
+            register_module("conv1",conv1);
+            conv1->to(torch::kFloat64);
+            register_module("pool1",pool1);
+            register_module("conv2",conv2);
+            conv2->to(torch::kFloat64);
+            register_module("pool2",pool2);
+            register_module("linear1",linear1);
+            linear1->to(torch::kFloat64);
+            register_module("linear2",linear2);
+            linear2->to(torch::kFloat64);
+        }
+        torch::Tensor forward(const torch::Tensor& input) override{
+            torch::Tensor output = torch::leaky_relu(conv1(input));
+            output = pool1(output);
+            output = conv2(output);
+            output = pool2(output).flatten(1);
+            output = torch::leaky_relu(linear1(output));
+            output = linear2(output);
+            return output;
+        }
+        torch::nn::Conv2d conv1,conv2;
+        torch::nn::AvgPool2d pool1,pool2;
+        torch::nn::Linear linear1,linear2;
+    };
+    [[maybe_unused]] void train_CryptoNets_model(const std::string& filename,int64_t epoch,int64_t batch,double lr = 0.01);
+
+    struct LoLaDenseImpl : BaseModelImpl{
+        LoLaDenseImpl(int64_t label_num)
+        :
+        conv(torch::nn::Conv2dOptions(1,5,{5,5}).stride(2).padding(2)),
+        linear1(torch::nn::LinearOptions(5*14*14,100)),
+        linear2(torch::nn::LinearOptions(100,label_num))
+        {
+            register_module("conv",conv);
+            conv->to(torch::kFloat64);
+            register_module("linear1",linear1);
+            linear1->to(torch::kFloat64);
+            register_module("linear2",linear2);
+            linear2->to(torch::kFloat64);
+        }
+        torch::Tensor forward(const torch::Tensor& input) override{
+            torch::Tensor output = torch::leaky_relu(conv(input));
+            output = output.flatten(1);
+            output = torch::leaky_relu(linear1(output));
+            output = linear2(output);
+            return output;
+        }
+        torch::nn::Conv2d conv;
+        torch::nn::Linear linear1,linear2;
+    };
+    [[maybe_unused]] void train_LoLaDense_model(const std::string& filename,int64_t epoch,int64_t batch,double lr = 0.01);
 }   // namespace end
 
 #endif //EXPERIMENT_TRAIN_MODEL_H
