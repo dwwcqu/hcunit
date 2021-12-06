@@ -1,5 +1,8 @@
 #include<torch/torch.h>
 #include "train_model.h"
+#include "conv_unit.h"
+#include "CryptoNets.h"
+#include "LoLa_Dense.h"
 #include "lenet.h"
 
 
@@ -8,8 +11,19 @@ int main() {
     // train_mnist_model("mnist",10,256,0.001);
     for(const auto& fl : dww::channel_num){
         if(fl.first != "chestmnist" && fl.first != "retinamnist" && fl.second == 1){
-             train_LeNet_model(fl.first, 5, 64, 0.001);
-             LeNet_he_inference_test(fl.first);
+            train_1_channel_model(fl.first,3,64,0.001);
+            conv_unit_he_inference_test(fl.first,8192,25);
+            conv_unit_he_inference_test(fl.first,16384,30);
+
+            train_CryptoNets_model(fl.first,3,64,0.001);
+            CryptoNets_he_inference_test(fl.first);
+
+            train_LoLaDense_model(fl.first,3,64,0.001);
+            LoLaDense_he_inference_test(fl.first,8192,25);
+            LoLaDense_he_inference_test(fl.first,16384,25);
+
+            train_LeNet_model(fl.first, 3, 64, 0.001);
+            LeNet_he_inference_test(fl.first);
         }
     }
     return 0;
