@@ -13,7 +13,7 @@ find_package(Torch REQUIRED)
 # find_package(OpenCV REQUIRED)
 
 # include_directories( ${OpenCV_INCLUDE_DIRS} )
-add_executable(Experiment main.cpp cnpy.cpp cnpy.h train_model.h datasets.cpp datasets.h dataloader.cpp dataloader.h train_model.cpp he_layer.cpp he_layer.h he_utils.cpp he_utils.h conv_unit.h conv_unit.cpp lenet.cpp lenet.h)
+add_executable(Experiment main.cpp cnpy.cpp cnpy.h train_model.h datasets.cpp datasets.h dataloader.cpp dataloader.h train_model.cpp he_layer.cpp he_layer.h he_utils.cpp he_utils.h conv_unit.h conv_unit.cpp lenet.cpp lenet.h CryptoNets.cpp CryptoNets.h LoLa_Dense.cpp LoLa_Dense.h)
 
 target_link_libraries(Experiment SEAL::seal)
 target_link_libraries(Experiment "${TORCH_LIBRARIES}")
