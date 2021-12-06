@@ -154,7 +154,7 @@ void dww::HELinear::forward(const dww::Cipher_Tensor &sour, dww::HEWrapper &tool
     assert(sour.numel() == in_ && "Matrix's col number is not equal to vector's length. Can't complete multiplication between matrix and vector!");
     assert(sour.shape.size() == 1 && dest.value.size() == out_ && "Linear's output size must be equal to Linear's out_");
     int64_t R = out_, C = in_; // 行数、列数
-    // 权重矩阵与输入向量之间的乘积
+    // 权重矩阵与输入向量之间的乘积 
     for(int64_t sz = 0; sz < R; ++sz){
         // 获取当前行的行向量元素
         std::vector<double> row_weight(weights.begin() + sz * C,weights.begin() + (sz + 1) * C);
@@ -173,7 +173,7 @@ std::vector<int64_t> dww::HELinear::out_shape() const{
 
 dww::HELinear::HELinear(const torch::Tensor &w, const torch::Tensor &b, int64_t in, int64_t out):
     weights(w.data_ptr<double>(),w.data_ptr<double>() + w.numel()),
-    bias(w.data_ptr<double>(),w.data_ptr<double>() + w.numel()),
+    bias(b.data_ptr<double>(),b.data_ptr<double>() + b.numel()),
     in_(in),out_(out)
 {
 

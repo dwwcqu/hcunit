@@ -21,9 +21,9 @@ namespace dww{
             // 设置多项式的阶
             params.set_poly_modulus_degree(poly_m_d);
             // 设置多项式系数的模空间大小，根据多项式的阶获取该阶对应的最大多项式模系数
-            if(scale_bit == 25)
+            if(poly_m_d == 8192)
                 params.set_coeff_modulus(seal::CoeffModulus::Create(poly_m_d,{45,25,25,25,25,25,45}));
-            else if(scale_bit == 30)
+            else if(poly_m_d == 16384)
                 params.set_coeff_modulus(seal::CoeffModulus::Create(poly_m_d,
                                                                     {50,30,30,30,30,30,30,30,30,30,50}));
         }

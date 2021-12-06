@@ -143,6 +143,8 @@ dww::Cipher_Tensor::conv2d_one_window(int64_t channel, int64_t row,
     seal::Plaintext temp1;
     tools.get_plaintext_of(weight[id++],temp1);
     int64_t index = start + W * left_up.first + left_up.second;
+    if(temp1.parms_id() != value[index].parms_id())
+        tools.evl.mod_switch_to_inplace(temp1,value[index].parms_id());
     tools.evl.multiply_plain(value[index],temp1,res);
     tools.evl.rescale_to_next_inplace(res);
     // 行
@@ -155,6 +157,8 @@ dww::Cipher_Tensor::conv2d_one_window(int64_t channel, int64_t row,
                 index = start + W * i + j;
                 seal::Plaintext plain;
                 tools.get_plaintext_of(weight[id++],plain);
+                if(plain.parms_id() != value[index].parms_id())
+                    tools.evl.mod_switch_to_inplace(plain,value[index].parms_id());
                 seal::Ciphertext cipher;
                 tools.evl.multiply_plain(value[index],plain,cipher);
                 tools.evl.rescale_to_next_inplace(cipher);
