@@ -1,0 +1,184 @@
+Dataset: breastmnist
+Model Information: 
+conv1: 	In channel = 1; Out Channel = 5; Windows = 5
+		; Padding = 1; Stride = 2
+pool1: 	Window = 3; Padding = 1; Stride = 1
+conv2: 	In channel = 5; Out Channel = 50; Windows = 5
+		; Padding = 0; Stride = 2
+pool2: 	Window = 3; Padding = 1; Stride = 1
+linear1: 	In Channel = 1250; Out Channel = 100
+linear2: 	In Channel = 100; Out Channel = 2
+	[1/1], Acc = 48.7179%
+Total Inference Images                             : 156
+Total Acc                                          : 48.7179%
+Total Convolution Operation Time Consume           : 1138.78(s)
+Average Convolution Operation Time Consume         : 7.29985(s)
+Total Pooling Operation Time Consume               : 17.8493(s)
+Average Pooling Operation Time Consume             : 0.114419(s)
+Total Square Activation Operation Time Consume     : 38.19(s)
+Average Square Activation Operation Time Consume   : 0.244808(s)
+Total Linear Operation Time Consume                : 581.057(s)
+Average Square Activation Operation Time Consume   : 3.72472(s)
+Total Time Consume                                 : 1804.74(s)
+Average Time Consume Per Batch                     : 1804.74(s)
+Average Time Consume Per Image                     : 11.5689(s)
+
+Dataset: octmnist
+Model Information: 
+conv1: 	In channel = 1; Out Channel = 5; Windows = 5
+		; Padding = 1; Stride = 2
+pool1: 	Window = 3; Padding = 1; Stride = 1
+conv2: 	In channel = 5; Out Channel = 50; Windows = 5
+		; Padding = 0; Stride = 2
+pool2: 	Window = 3; Padding = 1; Stride = 1
+linear1: 	In Channel = 1250; Out Channel = 100
+linear2: 	In Channel = 100; Out Channel = 4
+	[1/1], Acc = 24.6%
+Total Inference Images                             : 1000
+Total Acc                                          : 24.6%
+Total Convolution Operation Time Consume           : 1140.7(s)
+Average Convolution Operation Time Consume         : 1.1407(s)
+Total Pooling Operation Time Consume               : 25.9608(s)
+Average Pooling Operation Time Consume             : 0.0259608(s)
+Total Square Activation Operation Time Consume     : 41.9056(s)
+Average Square Activation Operation Time Consume   : 0.0419056(s)
+Total Linear Operation Time Consume                : 581.522(s)
+Average Square Activation Operation Time Consume   : 0.581522(s)
+Total Time Consume                                 : 1819.27(s)
+Average Time Consume Per Batch                     : 1819.27(s)
+Average Time Consume Per Image                     : 1.81927(s)
+
+Dataset: organamnist
+Model Information: 
+conv1: 	In channel = 1; Out Channel = 5; Windows = 5
+		; Padding = 1; Stride = 2
+pool1: 	Window = 3; Padding = 1; Stride = 1
+conv2: 	In channel = 5; Out Channel = 50; Windows = 5
+		; Padding = 0; Stride = 2
+pool2: 	Window = 3; Padding = 1; Stride = 1
+linear1: 	In Channel = 1250; Out Channel = 100
+linear2: 	In Channel = 100; Out Channel = 11
+	[1/3], Acc = 4.01057%
+	[2/3], Acc = 7.90865%
+	[3/3], Acc = 8.61177%
+Total Inference Images                             : 17778
+Total Acc                                          : 8.61177%
+Total Convolution Operation Time Consume           : 3413.51(s)
+Average Convolution Operation Time Consume         : 0.192007(s)
+Total Pooling Operation Time Consume               : 62.5671(s)
+Average Pooling Operation Time Consume             : 0.00351935(s)
+Total Square Activation Operation Time Consume     : 115.932(s)
+Average Square Activation Operation Time Consume   : 0.00652107(s)
+Total Linear Operation Time Consume                : 1750.47(s)
+Average Square Activation Operation Time Consume   : 0.098463(s)
+Total Time Consume                                 : 5431.08(s)
+Average Time Consume Per Batch                     : 1810.36(s)
+Average Time Consume Per Image                     : 0.305494(s)
+
+Dataset: organcmnist
+Model Information: 
+conv1: 	In channel = 1; Out Channel = 5; Windows = 5
+		; Padding = 1; Stride = 2
+pool1: 	Window = 3; Padding = 1; Stride = 1
+conv2: 	In channel = 5; Out Channel = 50; Windows = 5
+		; Padding = 0; Stride = 2
+pool2: 	Window = 3; Padding = 1; Stride = 1
+linear1: 	In Channel = 1250; Out Channel = 100
+linear2: 	In Channel = 100; Out Channel = 11
+	[1/2], Acc = 5.33382%
+	[2/2], Acc = 5.35801%
+Total Inference Images                             : 8268
+Total Acc                                          : 5.35801%
+Total Convolution Operation Time Consume           : 2286.49(s)
+Average Convolution Operation Time Consume         : 0.276547(s)
+Total Pooling Operation Time Consume               : 44.0877(s)
+Average Pooling Operation Time Consume             : 0.00533233(s)
+Total Square Activation Operation Time Consume     : 78.3034(s)
+Average Square Activation Operation Time Consume   : 0.00947065(s)
+Total Linear Operation Time Consume                : 1171.89(s)
+Average Square Activation Operation Time Consume   : 0.141738(s)
+Total Time Consume                                 : 3639.26(s)
+Average Time Consume Per Batch                     : 1819.63(s)
+Average Time Consume Per Image                     : 0.440162(s)
+
+Dataset: organsmnist
+Model Information: 
+conv1: 	In channel = 1; Out Channel = 5; Windows = 5
+		; Padding = 1; Stride = 2
+pool1: 	Window = 3; Padding = 1; Stride = 1
+conv2: 	In channel = 5; Out Channel = 50; Windows = 5
+		; Padding = 0; Stride = 2
+pool2: 	Window = 3; Padding = 1; Stride = 1
+linear1: 	In Channel = 1250; Out Channel = 100
+linear2: 	In Channel = 100; Out Channel = 11
+	[1/2], Acc = 4.5192%
+	[2/2], Acc = 4.87031%
+Total Inference Images                             : 8829
+Total Acc                                          : 4.87031%
+Total Convolution Operation Time Consume           : 2273.94(s)
+Average Convolution Operation Time Consume         : 0.257554(s)
+Total Pooling Operation Time Consume               : 42.1682(s)
+Average Pooling Operation Time Consume             : 0.0047761(s)
+Total Square Activation Operation Time Consume     : 79.1847(s)
+Average Square Activation Operation Time Consume   : 0.00896871(s)
+Total Linear Operation Time Consume                : 1178.26(s)
+Average Square Activation Operation Time Consume   : 0.133453(s)
+Total Time Consume                                 : 3634.99(s)
+Average Time Consume Per Batch                     : 1817.49(s)
+Average Time Consume Per Image                     : 0.41171(s)
+
+Dataset: pneumoniamnist
+Model Information: 
+conv1: 	In channel = 1; Out Channel = 5; Windows = 5
+		; Padding = 1; Stride = 2
+pool1: 	Window = 3; Padding = 1; Stride = 1
+conv2: 	In channel = 5; Out Channel = 50; Windows = 5
+		; Padding = 0; Stride = 2
+pool2: 	Window = 3; Padding = 1; Stride = 1
+linear1: 	In Channel = 1250; Out Channel = 100
+linear2: 	In Channel = 100; Out Channel = 2
+	[1/1], Acc = 62.5%
+Total Inference Images                             : 624
+Total Acc                                          : 62.5%
+Total Convolution Operation Time Consume           : 1136.31(s)
+Average Convolution Operation Time Consume         : 1.82102(s)
+Total Pooling Operation Time Consume               : 26.2339(s)
+Average Pooling Operation Time Consume             : 0.0420414(s)
+Total Square Activation Operation Time Consume     : 41.3273(s)
+Average Square Activation Operation Time Consume   : 0.0662296(s)
+Total Linear Operation Time Consume                : 581.64(s)
+Average Square Activation Operation Time Consume   : 0.932115(s)
+Total Time Consume                                 : 1814.12(s)
+Average Time Consume Per Batch                     : 1814.12(s)
+Average Time Consume Per Image                     : 2.90725(s)
+
+Dataset: tissuemnist
+Model Information: 
+conv1: 	In channel = 1; Out Channel = 5; Windows = 5
+		; Padding = 1; Stride = 2
+pool1: 	Window = 3; Padding = 1; Stride = 1
+conv2: 	In channel = 5; Out Channel = 50; Windows = 5
+		; Padding = 0; Stride = 2
+pool2: 	Window = 3; Padding = 1; Stride = 1
+linear1: 	In Channel = 1250; Out Channel = 100
+linear2: 	In Channel = 100; Out Channel = 8
+	[1/6], Acc = 4.37183%
+	[2/6], Acc = 8.65482%
+	[3/6], Acc = 12.9569%
+	[4/6], Acc = 17.2229%
+	[5/6], Acc = 21.5144%
+	[6/6], Acc = 24.8541%
+Total Inference Images                             : 47280
+Total Acc                                          : 24.8541%
+Total Convolution Operation Time Consume           : 6812.61(s)
+Average Convolution Operation Time Consume         : 0.144091(s)
+Total Pooling Operation Time Consume               : 114.226(s)
+Average Pooling Operation Time Consume             : 0.00241595(s)
+Total Square Activation Operation Time Consume     : 228.244(s)
+Average Square Activation Operation Time Consume   : 0.0048275(s)
+Total Linear Operation Time Consume                : 3487.81(s)
+Average Square Activation Operation Time Consume   : 0.0737691(s)
+Total Time Consume                                 : 10820.9(s)
+Average Time Consume Per Batch                     : 1803.48(s)
+Average Time Consume Per Image                     : 0.228869(s)
+

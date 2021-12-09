@@ -1,0 +1,420 @@
+Dataset: breastmnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 2
+	[1/1], Acc = 73.0769%
+Total Inference Images                     : 156
+Total Acc                                  : 73.0769%
+Total Conv2d Operation Time Consume        : 129.583(s)
+Average Conv2d Operation Time Consume      : 0.830658(s)
+Total Average2d Operation Time Consume     : 5.07473(s)
+Average Average2d Operation Time Consume   : 0.0325303(s)
+Total LeakyReLU Operation Time Consume     : 11.1674(s)
+Average LeakyReLU Operation Time Consume   : 0.0715859(s)
+Total Linear1 Operation Time Consume       : 141.598(s)
+Average Linear1 Operation Time Consume     : 0.907678(s)
+Total Linear2 Operation Time Consume       : 0.112501(s)
+Average Linear2 Operation Time Consume     : 0.000721159(s)
+Total Encryption Time Consume              : 9.52498(s)
+Average Encryption Time Consume Per Images : 0.0610575(s)
+Total Decryption Time Consume              : 0.00571283(s)
+Average Decryption Time Consume Per Images : 3.66207e-05(s)
+Total Time Consume                         : 297.063(s)
+Average Time Consume Per Batch             : 297.063(s)
+Average Time Consume Per Image             : 1.90425(s)
+
+Dataset: breastmnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 2
+	[1/1], Acc = 73.0769%
+Total Inference Images                     : 156
+Total Acc                                  : 73.0769%
+Total Conv2d Operation Time Consume        : 460.236(s)
+Average Conv2d Operation Time Consume      : 2.95023(s)
+Total Average2d Operation Time Consume     : 21.5104(s)
+Average Average2d Operation Time Consume   : 0.137887(s)
+Total LeakyReLU Operation Time Consume     : 67.5531(s)
+Average LeakyReLU Operation Time Consume   : 0.433032(s)
+Total Linear1 Operation Time Consume       : 724.663(s)
+Average Linear1 Operation Time Consume     : 4.64527(s)
+Total Linear2 Operation Time Consume       : 0.705034(s)
+Average Linear2 Operation Time Consume     : 0.00451945(s)
+Total Encryption Time Consume              : 28.7032(s)
+Average Encryption Time Consume Per Images : 0.183995(s)
+Total Decryption Time Consume              : 0.0250572(s)
+Average Decryption Time Consume Per Images : 0.000160623(s)
+Total Time Consume                         : 1303.38(s)
+Average Time Consume Per Batch             : 1303.38(s)
+Average Time Consume Per Image             : 8.35502(s)
+
+Dataset: octmnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 4
+	[1/1], Acc = 30.7%
+Total Inference Images                     : 1000
+Total Acc                                  : 30.7%
+Total Conv2d Operation Time Consume        : 139.043(s)
+Average Conv2d Operation Time Consume      : 0.139043(s)
+Total Average2d Operation Time Consume     : 9.2945(s)
+Average Average2d Operation Time Consume   : 0.0092945(s)
+Total LeakyReLU Operation Time Consume     : 16.0719(s)
+Average LeakyReLU Operation Time Consume   : 0.0160719(s)
+Total Linear1 Operation Time Consume       : 142.253(s)
+Average Linear1 Operation Time Consume     : 0.142253(s)
+Total Linear2 Operation Time Consume       : 0.233311(s)
+Average Linear2 Operation Time Consume     : 0.000233311(s)
+Total Encryption Time Consume              : 11.653(s)
+Average Encryption Time Consume Per Images : 0.011653(s)
+Total Decryption Time Consume              : 0.0127502(s)
+Average Decryption Time Consume Per Images : 1.27502e-05(s)
+Total Time Consume                         : 318.552(s)
+Average Time Consume Per Batch             : 318.552(s)
+Average Time Consume Per Image             : 0.318552(s)
+
+Dataset: octmnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 4
+	[1/1], Acc = 30.7%
+Total Inference Images                     : 1000
+Total Acc                                  : 30.7%
+Total Conv2d Operation Time Consume        : 488.468(s)
+Average Conv2d Operation Time Consume      : 0.488468(s)
+Total Average2d Operation Time Consume     : 28.412(s)
+Average Average2d Operation Time Consume   : 0.028412(s)
+Total LeakyReLU Operation Time Consume     : 82.7843(s)
+Average LeakyReLU Operation Time Consume   : 0.0827843(s)
+Total Linear1 Operation Time Consume       : 723.26(s)
+Average Linear1 Operation Time Consume     : 0.72326(s)
+Total Linear2 Operation Time Consume       : 1.48842(s)
+Average Linear2 Operation Time Consume     : 0.00148842(s)
+Total Encryption Time Consume              : 29.6727(s)
+Average Encryption Time Consume Per Images : 0.0296727(s)
+Total Decryption Time Consume              : 0.072837(s)
+Average Decryption Time Consume Per Images : 7.2837e-05(s)
+Total Time Consume                         : 1354.09(s)
+Average Time Consume Per Batch             : 1354.09(s)
+Average Time Consume Per Image             : 1.35409(s)
+
+Dataset: organamnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 11
+	[1/5], Acc = 1.42311%
+	[2/5], Acc = 2.77872%
+	[3/5], Acc = 4.19057%
+	[4/5], Acc = 5.63618%
+	[5/5], Acc = 6.09742%
+Total Inference Images                     : 17778
+Total Acc                                  : 6.09742%
+Total Conv2d Operation Time Consume        : 666.222(s)
+Average Conv2d Operation Time Consume      : 0.0374745(s)
+Total Average2d Operation Time Consume     : 31.4699(s)
+Average Average2d Operation Time Consume   : 0.00177016(s)
+Total LeakyReLU Operation Time Consume     : 61.9808(s)
+Average LeakyReLU Operation Time Consume   : 0.00348638(s)
+Total Linear1 Operation Time Consume       : 711.175(s)
+Average Linear1 Operation Time Consume     : 0.0400031(s)
+Total Linear2 Operation Time Consume       : 3.03794(s)
+Average Linear2 Operation Time Consume     : 0.000170882(s)
+Total Encryption Time Consume              : 51.9727(s)
+Average Encryption Time Consume Per Images : 0.00292343(s)
+Total Decryption Time Consume              : 0.178065(s)
+Average Decryption Time Consume Per Images : 1.0016e-05(s)
+Total Time Consume                         : 1525.73(s)
+Average Time Consume Per Batch             : 305.146(s)
+Average Time Consume Per Image             : 0.0858211(s)
+
+Dataset: organamnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 11
+	[1/3], Acc = 2.77872%
+	[2/3], Acc = 5.63618%
+	[3/3], Acc = 6.09742%
+Total Inference Images                     : 17778
+Total Acc                                  : 6.09742%
+Total Conv2d Operation Time Consume        : 1430.78(s)
+Average Conv2d Operation Time Consume      : 0.0804806(s)
+Total Average2d Operation Time Consume     : 68.5962(s)
+Average Average2d Operation Time Consume   : 0.00385849(s)
+Total LeakyReLU Operation Time Consume     : 206.071(s)
+Average LeakyReLU Operation Time Consume   : 0.0115914(s)
+Total Linear1 Operation Time Consume       : 2154.6(s)
+Average Linear1 Operation Time Consume     : 0.121195(s)
+Total Linear2 Operation Time Consume       : 11.374(s)
+Average Linear2 Operation Time Consume     : 0.000639782(s)
+Total Encryption Time Consume              : 91.0172(s)
+Average Encryption Time Consume Per Images : 0.00511966(s)
+Total Decryption Time Consume              : 0.39251(s)
+Average Decryption Time Consume Per Images : 2.20784e-05(s)
+Total Time Consume                         : 3962.18(s)
+Average Time Consume Per Batch             : 1320.73(s)
+Average Time Consume Per Image             : 0.22287(s)
+
+Dataset: organcmnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 11
+	[1/3], Acc = 10.6313%
+	[2/3], Acc = 22.0005%
+	[3/3], Acc = 22.2061%
+Total Inference Images                     : 8268
+Total Acc                                  : 22.2061%
+Total Conv2d Operation Time Consume        : 407.629(s)
+Average Conv2d Operation Time Consume      : 0.049302(s)
+Total Average2d Operation Time Consume     : 20.2571(s)
+Average Average2d Operation Time Consume   : 0.00245006(s)
+Total LeakyReLU Operation Time Consume     : 38.802(s)
+Average LeakyReLU Operation Time Consume   : 0.00469304(s)
+Total Linear1 Operation Time Consume       : 430.078(s)
+Average Linear1 Operation Time Consume     : 0.0520172(s)
+Total Linear2 Operation Time Consume       : 1.84668(s)
+Average Linear2 Operation Time Consume     : 0.000223353(s)
+Total Encryption Time Consume              : 31.9012(s)
+Average Encryption Time Consume Per Images : 0.00385839(s)
+Total Decryption Time Consume              : 0.109807(s)
+Average Decryption Time Consume Per Images : 1.3281e-05(s)
+Total Time Consume                         : 930.448(s)
+Average Time Consume Per Batch             : 310.149(s)
+Average Time Consume Per Image             : 0.112536(s)
+
+Dataset: organcmnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 11
+	[1/2], Acc = 22.0005%
+	[2/2], Acc = 22.2061%
+Total Inference Images                     : 8268
+Total Acc                                  : 22.2061%
+Total Conv2d Operation Time Consume        : 972.227(s)
+Average Conv2d Operation Time Consume      : 0.117589(s)
+Total Average2d Operation Time Consume     : 63.2898(s)
+Average Average2d Operation Time Consume   : 0.00765478(s)
+Total LeakyReLU Operation Time Consume     : 150.692(s)
+Average LeakyReLU Operation Time Consume   : 0.0182259(s)
+Total Linear1 Operation Time Consume       : 1443.96(s)
+Average Linear1 Operation Time Consume     : 0.174645(s)
+Total Linear2 Operation Time Consume       : 7.69138(s)
+Average Linear2 Operation Time Consume     : 0.000930259(s)
+Total Encryption Time Consume              : 61.0482(s)
+Average Encryption Time Consume Per Images : 0.00738368(s)
+Total Decryption Time Consume              : 0.266211(s)
+Average Decryption Time Consume Per Images : 3.21977e-05(s)
+Total Time Consume                         : 2698.78(s)
+Average Time Consume Per Batch             : 1349.39(s)
+Average Time Consume Per Image             : 0.326412(s)
+
+Dataset: organsmnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 11
+	[1/3], Acc = 1.41579%
+	[2/3], Acc = 2.72964%
+	[3/3], Acc = 2.93351%
+Total Inference Images                     : 8829
+Total Acc                                  : 2.93351%
+Total Conv2d Operation Time Consume        : 408.292(s)
+Average Conv2d Operation Time Consume      : 0.0462444(s)
+Total Average2d Operation Time Consume     : 20.6249(s)
+Average Average2d Operation Time Consume   : 0.00233604(s)
+Total LeakyReLU Operation Time Consume     : 39.6854(s)
+Average LeakyReLU Operation Time Consume   : 0.00449489(s)
+Total Linear1 Operation Time Consume       : 431.477(s)
+Average Linear1 Operation Time Consume     : 0.0488704(s)
+Total Linear2 Operation Time Consume       : 1.84349(s)
+Average Linear2 Operation Time Consume     : 0.000208799(s)
+Total Encryption Time Consume              : 29.2674(s)
+Average Encryption Time Consume Per Images : 0.00331492(s)
+Total Decryption Time Consume              : 0.116225(s)
+Average Decryption Time Consume Per Images : 1.3164e-05(s)
+Total Time Consume                         : 931.116(s)
+Average Time Consume Per Batch             : 310.372(s)
+Average Time Consume Per Image             : 0.105461(s)
+
+Dataset: organsmnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 11
+	[1/2], Acc = 2.72964%
+	[2/2], Acc = 2.93351%
+Total Inference Images                     : 8829
+Total Acc                                  : 2.93351%
+Total Conv2d Operation Time Consume        : 974.802(s)
+Average Conv2d Operation Time Consume      : 0.110409(s)
+Total Average2d Operation Time Consume     : 61.4512(s)
+Average Average2d Operation Time Consume   : 0.00696015(s)
+Total LeakyReLU Operation Time Consume     : 161.195(s)
+Average LeakyReLU Operation Time Consume   : 0.0182574(s)
+Total Linear1 Operation Time Consume       : 1437.14(s)
+Average Linear1 Operation Time Consume     : 0.162775(s)
+Total Linear2 Operation Time Consume       : 7.6638(s)
+Average Linear2 Operation Time Consume     : 0.000868025(s)
+Total Encryption Time Consume              : 70.4011(s)
+Average Encryption Time Consume Per Images : 0.00797385(s)
+Total Decryption Time Consume              : 0.26302(s)
+Average Decryption Time Consume Per Images : 2.97905e-05(s)
+Total Time Consume                         : 2712.52(s)
+Average Time Consume Per Batch             : 1356.26(s)
+Average Time Consume Per Image             : 0.307228(s)
+
+Dataset: pneumoniamnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 2
+	[1/1], Acc = 62.5%
+Total Inference Images                     : 624
+Total Acc                                  : 62.5%
+Total Conv2d Operation Time Consume        : 149.654(s)
+Average Conv2d Operation Time Consume      : 0.239829(s)
+Total Average2d Operation Time Consume     : 10.6707(s)
+Average Average2d Operation Time Consume   : 0.0171005(s)
+Total LeakyReLU Operation Time Consume     : 16.8412(s)
+Average LeakyReLU Operation Time Consume   : 0.0269891(s)
+Total Linear1 Operation Time Consume       : 144.097(s)
+Average Linear1 Operation Time Consume     : 0.230924(s)
+Total Linear2 Operation Time Consume       : 0.124096(s)
+Average Linear2 Operation Time Consume     : 0.000198872(s)
+Total Encryption Time Consume              : 9.69844(s)
+Average Encryption Time Consume Per Images : 0.0155424(s)
+Total Decryption Time Consume              : 0.00737216(s)
+Average Decryption Time Consume Per Images : 1.18144e-05(s)
+Total Time Consume                         : 331.089(s)
+Average Time Consume Per Batch             : 331.089(s)
+Average Time Consume Per Image             : 0.530592(s)
+
+Dataset: pneumoniamnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 2
+	[1/1], Acc = 62.5%
+Total Inference Images                     : 624
+Total Acc                                  : 62.5%
+Total Conv2d Operation Time Consume        : 501.152(s)
+Average Conv2d Operation Time Consume      : 0.803129(s)
+Total Average2d Operation Time Consume     : 33.1878(s)
+Average Average2d Operation Time Consume   : 0.0531856(s)
+Total LeakyReLU Operation Time Consume     : 82.2461(s)
+Average LeakyReLU Operation Time Consume   : 0.131805(s)
+Total Linear1 Operation Time Consume       : 718.661(s)
+Average Linear1 Operation Time Consume     : 1.1517(s)
+Total Linear2 Operation Time Consume       : 0.722382(s)
+Average Linear2 Operation Time Consume     : 0.00115766(s)
+Total Encryption Time Consume              : 34.377(s)
+Average Encryption Time Consume Per Images : 0.0550914(s)
+Total Decryption Time Consume              : 0.0297576(s)
+Average Decryption Time Consume Per Images : 4.76885e-05(s)
+Total Time Consume                         : 1370.35(s)
+Average Time Consume Per Batch             : 1370.35(s)
+Average Time Consume Per Image             : 2.19608(s)
+
+Dataset: tissuemnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 8
+	[1/12], Acc = 0.810068%
+	[2/12], Acc = 1.68993%
+	[3/12], Acc = 2.52538%
+	[4/12], Acc = 3.4264%
+	[5/12], Acc = 4.26607%
+	[6/12], Acc = 5.10364%
+	[7/12], Acc = 5.93697%
+	[8/12], Acc = 6.80626%
+	[9/12], Acc = 7.69247%
+	[10/12], Acc = 8.57234%
+	[11/12], Acc = 9.4099%
+	[12/12], Acc = 9.86675%
+Total Inference Images                     : 47280
+Total Acc                                  : 9.86675%
+Total Conv2d Operation Time Consume        : 1565.19(s)
+Average Conv2d Operation Time Consume      : 0.0331047(s)
+Total Average2d Operation Time Consume     : 67.0077(s)
+Average Average2d Operation Time Consume   : 0.00141725(s)
+Total LeakyReLU Operation Time Consume     : 140.331(s)
+Average LeakyReLU Operation Time Consume   : 0.00296809(s)
+Total Linear1 Operation Time Consume       : 1702.63(s)
+Average Linear1 Operation Time Consume     : 0.0360116(s)
+Total Linear2 Operation Time Consume       : 5.30395(s)
+Average Linear2 Operation Time Consume     : 0.000112182(s)
+Total Encryption Time Consume              : 119.933(s)
+Average Encryption Time Consume Per Images : 0.00253664(s)
+Total Decryption Time Consume              : 0.31712(s)
+Average Decryption Time Consume Per Images : 6.70728e-06(s)
+Total Time Consume                         : 3600.14(s)
+Average Time Consume Per Batch             : 300.012(s)
+Average Time Consume Per Image             : 0.0761451(s)
+
+Dataset: tissuemnist
+Model Information: 
+conv: 	In channel = 1; Out Channel = 8; Windows = 3
+		; Padding = 1; Stride = 1
+pool: 	Window = 2; Padding = 1; Stride = 2
+linear1: 	In Channel = 1800; Out Channel = 64
+linear2: 	In Channel = 64; Out Channel = 8
+	[1/6], Acc = 1.68993%
+	[2/6], Acc = 3.4264%
+	[3/6], Acc = 5.10575%
+	[4/6], Acc = 6.80838%
+	[5/6], Acc = 8.57445%
+	[6/6], Acc = 9.86887%
+Total Inference Images                     : 47280
+Total Acc                                  : 9.86887%
+Total Conv2d Operation Time Consume        : 2817.86(s)
+Average Conv2d Operation Time Consume      : 0.0595994(s)
+Total Average2d Operation Time Consume     : 134.396(s)
+Average Average2d Operation Time Consume   : 0.00284256(s)
+Total LeakyReLU Operation Time Consume     : 421.901(s)
+Average LeakyReLU Operation Time Consume   : 0.00892346(s)
+Total Linear1 Operation Time Consume       : 4360.13(s)
+Average Linear1 Operation Time Consume     : 0.0922193(s)
+Total Linear2 Operation Time Consume       : 16.8045(s)
+Average Linear2 Operation Time Consume     : 0.000355425(s)
+Total Encryption Time Consume              : 185.145(s)
+Average Encryption Time Consume Per Images : 0.00391592(s)
+Total Decryption Time Consume              : 0.610738(s)
+Average Decryption Time Consume Per Images : 1.29175e-05(s)
+Total Time Consume                         : 7935.75(s)
+Average Time Consume Per Batch             : 1322.62(s)
+Average Time Consume Per Image             : 0.167846(s)
+

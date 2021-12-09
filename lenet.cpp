@@ -184,7 +184,7 @@ void dww::LeNet_he_inference_test(const std::string& filename){
     test_log << "Dataset: " << filename << '\n';
     test_log << "Model Information: \n";
     test_log << model;
-    std::cout << "----> Homomorphic Convolution " <<  filename <<  " Datasets Starts <-----\n";
+    std::cout << "----> LeNet Homomorphic Convolution " <<  filename <<  " Datasets Starts <-----\n";
     using std::chrono::high_resolution_clock;
     high_resolution_clock::time_point start,end;
     double time_consume = 0;
@@ -232,5 +232,5 @@ void dww::LeNet_he_inference_test(const std::string& filename){
     test_log << "Average Time Consume Per Image                     : " << time_consume / samples_num << "(s)\n\n";
     test_log.flush();
     test_log.close();
-    std::cout << "----> Homomorphic Convolution " <<  filename <<  " Datasets End <-----\n";
+    std::cout << "----> LeNet Homomorphic Convolution " <<  filename <<  " Datasets End <-----\n";
 }
