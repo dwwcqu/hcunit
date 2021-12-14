@@ -129,12 +129,16 @@ void dww::LoLaDense_he_inference_test(const std::string& filename,int64_t poly_d
 
     test_log << "Total Inference Images                             : " << dataloader.samples_num << "\n";
     test_log << "Total Acc                                          : " << static_cast<double>(correct) / samples_num * 100 << "%\n";
+    test_log << "Total Encryption Operation Time Consume            : " << model.enc_time << "(s)\n";
+    test_log << "Average Encryption Operation Time Consume          : " << model.enc_time / samples_num << "(s)\n";
     test_log << "Total Convolution Operation Time Consume           : " << model.conv_time << "(s)\n";
     test_log << "Average Convolution Operation Time Consume         : " << model.conv_time / samples_num << "(s)\n";
     test_log << "Total Square Activation Operation Time Consume     : " << model.square_time << "(s)\n";
     test_log << "Average Square Activation Operation Time Consume   : " << model.square_time / samples_num << "(s)\n";
     test_log << "Total Linear Operation Time Consume                : " << model.linear_time << "(s)\n";
     test_log << "Average Square Activation Operation Time Consume   : " << model.linear_time / samples_num << "(s)\n";
+    test_log << "Total Decryption Operation Time Consume            : " << model.dec_time << "(s)\n";
+    test_log << "Average Decryption Operation Time Consume          : " << model.dec_time / samples_num << "(s)\n";
     test_log << "Total Time Consume                                 : " << time_consume << "(s)\n";
     test_log << "Average Time Consume Per Batch                     : " << time_consume / sz << "(s)\n";
     test_log << "Average Time Consume Per Image                     : " << time_consume / samples_num << "(s)\n\n";
